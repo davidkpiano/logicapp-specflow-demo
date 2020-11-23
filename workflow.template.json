@@ -1,0 +1,60 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "Send_email_(V2)": {
+        "inputs": {
+          "body": {
+            "Body": "<p>Greeting: @{triggerBody()?['greeting']}</p>",
+            "Subject": "You received a new greeting",
+            "To": "davidkpiano@gmail.com"
+          },
+          "host": {
+            "connection": {
+              "name": "@parameters('$connections')['gmail']['connectionId']"
+            }
+          },
+          "method": "post",
+          "path": "/v2/Mail"
+        },
+        "runAfter": {},
+        "type": "ApiConnection"
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "parameters": {
+      "$connections": {
+        "defaultValue": {},
+        "type": "Object"
+      }
+    },
+    "triggers": {
+      "manual": {
+        "inputs": {
+          "schema": {
+            "properties": {
+              "greeting": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "kind": "Http",
+        "type": "Request"
+      }
+    }
+  },
+  "parameters": {
+    "$connections": {
+      "value": {
+        "gmail": {
+          "connectionId": "[ENTER CONNECTION ID HERE]",
+          "connectionName": "gmail",
+          "id": "[ENTER ID HERE]"
+        }
+      }
+    }
+  }
+}
