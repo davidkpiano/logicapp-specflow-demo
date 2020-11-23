@@ -1,6 +1,6 @@
 # Azure Logic App E2E Tests with SpecFlow
 
-This repo demonstrates using [SpecFlow](https://specflow.org/) to run through testing scenarios and assert the expected behavior of [Azure Logic Apps].
+This repo demonstrates using [SpecFlow](https://specflow.org/) to run through testing scenarios and assert the expected behavior of [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
 
 ## Setup
 
